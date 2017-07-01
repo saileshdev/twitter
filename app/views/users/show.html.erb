@@ -11,15 +11,38 @@
         <%= @user.tweets.length %> Tweets
         <span class="spacing"><%= @user.followers.length %> Followers</span>
         <span class="spacing"><%= @user.followeds.length %> Following</span>
+
+        <% if current_user and @user != current_user %>
+            <% if current_user.following? @user %>
+                <%= form_tag @relationship, method: :delete do |f| %>
+                <%= f.submit "Unfollow" %>
+                <% end %>
+            
+            <% else %>
+                <%= form_for @relationship do |f| %>
+                <%= f.hidden_field :followed_id, value: @user.id %>
+                <%= submit_tag "Follow" %>
+                <% end %>
+            <% end %>
+        <% end %>
+
         </p>
     </div>
 </div>
 
 <div class="panel left">
     <h1>Tweets</h1>
-    <div class="tweetWrapper">
-        Tweets coming . . .
-    </div>
+
+    <% @user.tweets.each do |tweet| %>
+        <div class="tweetWrapper"> 
+            <img class="avatar" src="<%= tweet.user.avatar_url %>">
+            <span class="name"><%= tweet.user.name %></span> 
+            @<%= tweet.user.username %> 
+            <span class="time"><%= time_ago_in_words(tweet.created_at) %></span>
+            <p> <%= tweet.content %> </p>
+        </div>
+    <% end %> 
+    
 </div>
 
 <%= javascript_include_tag 'tweets' %>
