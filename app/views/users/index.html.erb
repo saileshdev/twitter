@@ -16,6 +16,12 @@
         <span class="spacing"><%= @user.followeds.length %> Following</span>
         </p>
 
+        <% if user.bio %>
+        	<p><%= user.bio %></p>
+        <% elsif user.tweets.first %>
+        	<p><%= user.tweets.first.content %></p>
+        <% end %>
+
     </div>
 </div>
 
