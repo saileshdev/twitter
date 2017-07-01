@@ -10,6 +10,7 @@ def create
 		redirect_to @user, notice: "Thank you for signing up for Twitter!"
 	else
 		render 'new'
+	end
 end
 
 def show
