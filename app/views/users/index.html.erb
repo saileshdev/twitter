@@ -4,16 +4,17 @@
 
 <div class="panel left">
     <h1>Public Profiles</h1>
+    <% @users.each do |user| %>
     <div class="tweetWrapper">
     	<a href="<%= user_path user %>">
-        	<img class="avatar" src="<%= @user.avatar_url %>">
-        	<span class="name"><%= @user.name %></span> @<%= @user.username %>
+        	<img class="avatar" src="<%= user.avatar_url %>">
+        	<span class="name"><%= user.name %></span> 
         </a>
         @<%= user.username %>
         <p>
-        <%= @user.tweets.length %> Tweets
-        <span class="spacing"><%= @user.followers.length %> Followers</span>
-        <span class="spacing"><%= @user.followeds.length %> Following</span>
+        <%= user.tweets.length %> Tweets
+        <span class="spacing"><%= user.followers.length %> Followers</span>
+        <span class="spacing"><%= user.followeds.length %> Following</span>
         </p>
 
         <% if user.bio %>
@@ -23,21 +24,7 @@
         <% end %>
 
     </div>
-</div>
-
-<div class="panel left">
-    <h1>Tweets</h1>
-
-    <% @user.tweets.each do |tweet| %>
-        <div class="tweetWrapper"> 
-            <img class="avatar" src="<%= tweet.user.avatar_url %>">
-            <span class="name"><%= tweet.user.name %></span> 
-            @<%= tweet.user.username %> 
-            <span class="time"><%= time_ago_in_words(tweet.created_at) %></span>
-            <p> <%= tweet.content %> </p>
-        </div>
-    <% end %> 
-    
+    <% end %>
 </div>
 
 <%= javascript_include_tag 'tweets' %>
