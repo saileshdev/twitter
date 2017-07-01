@@ -2,9 +2,12 @@ require 'digest/md5'
 
 class User < ActiveRecord::Base
 
+before_validation :prep_email
+before_save :create_avatar_url
+
 has_secure_password
 
-validates :email, uniqueness: true, presence: true, format: { with: /^[\w\.+-]+@([\w]+\.)+\w+$/ }
+validates :email, uniqueness: true, presence: true, format: { with: /\A[\w\.+-]+@([\w]+\.)+\w+\z/ }
 validates :username, uniqueness: true, presence: true
 validates :name, presence: true
 
