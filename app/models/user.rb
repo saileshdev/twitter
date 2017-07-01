@@ -2,6 +2,8 @@ require 'digest/md5'
 
 class User < ActiveRecord::Base
 
+has_many :tweets
+
 before_validation :prep_email
 before_save :create_avatar_url
 
