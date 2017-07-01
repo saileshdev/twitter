@@ -18,6 +18,10 @@ validates :email, uniqueness: true, presence: true, format: { with: /\A[\w\.+-]+
 validates :username, uniqueness: true, presence: true
 validates :name, presence: true
 
+def following? user
+  self.followeds.include? user
+end
+
 private
 
 def prep_email
