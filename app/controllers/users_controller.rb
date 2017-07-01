@@ -17,6 +17,7 @@ end
 def show
 	@user = User.find(params[:id])
 	@tweet = Tweet.new
+	@relationship = Relationship.new
 end
 
 private
