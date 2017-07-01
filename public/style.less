@@ -114,7 +114,7 @@ header {
 				width: 303px;
 				height: 313px;
 				float: right;
-				textarea.ribbitText {
+				textarea.twitterText {
 					width: 249px;
 					height: 160px;
 					border: 1px solid @border-color;
@@ -123,7 +123,7 @@ header {
 			&.left {
 				width: @content-width - 327;
 				float: left;
-				div.ribbitWrapper {
+				div.twitterWrapper {
 					padding: 15px 0;
 					border-bottom: 1px solid @border-color;
 					&:last-child {
@@ -197,4 +197,25 @@ footer {
 .flash {
 	padding: 10px;
 	margin: 20px 0;
+	&.error{
+		background: #ffefef;
+        color: #4c1717;
+        border: 1px solid #4c1717;
+
+	}
+	&.warning{
+		background: #ffe4c1;
+        color: #79420d;
+        border: 1px solid #79420d;
+
+	}
+	&.notice{
+		background: #efffd7;
+        color: #8ba015;
+        border: 1px solid #8ba015;
+	}
+}
+
+.limit{
+	color: red;
 }
