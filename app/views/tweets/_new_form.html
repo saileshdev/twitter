@@ -1,0 +1,8 @@
+<div class="panel right">
+    <h1>Create a Tweet</h1>
+    <%= form_for @tweet do |f| %>
+        <%= f.text_area :content, class: 'tweetText', id: 'tweetText' %>
+        <%= f.submit "Tweet!" %>
+        <span id="charCount">0</span>
+    <% end %>
+</div>
