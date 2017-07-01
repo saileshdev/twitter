@@ -1,4 +1,4 @@
-<% if current_user %>
+ <% if current_user %>
     <%= render 'tweets/new_form' %>
 <% end %>
 
@@ -21,3 +21,5 @@
         Tweets coming . . .
     </div>
 </div>
+
+<%= javascript_include_tag 'tweets' %>
