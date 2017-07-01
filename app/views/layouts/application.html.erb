@@ -2,13 +2,38 @@
 <html>
 <head>
   <title>Twitter</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  <link rel="stylesheet/less" href="/style.less">
+  <script src="/less.js"></script>
+  
   <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= yield %>
+</head>
+
+
+<body>
+	<header>
+		<div class="wrapper">
+			<img src="/gfx/logo.png">
+			<span>Microblogging platform</span>
+        </div>
+    </header>
+
+<div id="content">
+	<div class="wrapper">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "flash #{name}" %>
+      <% end %>
+
+	  <%= yield %>
+	</div>
+</div>
+
+<footer>
+	<div class="wrapper">
+	Twitter - A micro blogging platform
+	</div>
+</footer>
 
 </body>
 </html>
