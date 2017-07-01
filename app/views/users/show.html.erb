@@ -9,8 +9,8 @@
         <span class="name"><%= @user.name %></span> @<%= @user.username %>
         <p>
         <%= @user.tweets.length %> Tweets
-        <span class="spacing">XX Followers</span>
-        <span class="spacing">XX Following</span>
+        <span class="spacing"><%= @user.followers.length %> Followers</span>
+        <span class="spacing"><%= @user.followeds.length %> Following</span>
         </p>
     </div>
 </div>
