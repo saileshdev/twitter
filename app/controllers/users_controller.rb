@@ -23,6 +23,11 @@ def show
     ).first_or_initialize if current_user
 end
 
+def index
+	@users = User.all
+	@tweet = Tweet.new
+end
+
 private
 
 def user_params
