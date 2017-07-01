@@ -1,0 +1,17 @@
+<% if current_user %>
+    <%= render 'tweets/new_form' %>
+<% end %>
+<div class="panel left">
+    <h1>Public Tweets</h1>
+    <% @tweets.each do |tweet| %>
+        <div class="tweetWrapper">
+            <a href="<%= user_path tweet.user %>">
+            <img class="avatar" src="<%= tweet.user.avatar_url %>">
+            <span class="name"><%= tweet.user.name %></span> 
+            </a>
+            @<%= tweet.user.username %> 
+            <span class="time"><%= time_ago_in_words(tweet.created_at) %></span>
+            <p> <%= tweet.content %> </p>
+        </div>
+    <% end %>
+</div>
