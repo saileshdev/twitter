@@ -1,3 +1,7 @@
+<% if current_user %>
+    <%= render 'tweets/new_form' %>
+<% end %>
+
 <div id="tweets" class="panel left">
     <h1>Twitter Profile</h1>
     <div class="tweetWrapper">
