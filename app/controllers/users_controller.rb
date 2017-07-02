@@ -28,6 +28,16 @@ def index
 	@tweet = Tweet.new
 end
 
+def buddies
+    if current_user
+      @tweet = Tweet.new
+      buddies_ids = current_user.followeds.map(&:id).push(current_user.id)
+      @tweets = Tweet.find_all_by_user_id buddies_ids
+    else
+      redirect_to root_url
+    end
+  end
+
 private
 
 def user_params
