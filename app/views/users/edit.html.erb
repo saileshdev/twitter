@@ -10,12 +10,28 @@
         </ul>
       <% end %>
 
-      <p>Email: <%= f.text_field :email %></p>
-      <p>Name: <%= f.text_field :name %></p>
-      <p>Password: <%= f.password_field :password %></p>
-      <p>Password Confirmation: <%= f.password_field :password_confirmation %></p>
-      <p>Bio: <%= f.text_area :bio %></p>
-      <p><%= f.submit "Update" %></p> 
+      </br>
+      Email:</br>
+      <%= f.text_field :email %>
+      </br>
+      </br>
+      Name:</br> 
+      <%= f.text_field :name %>
+      </br>
+      </br>
+      Password:</br> 
+      <%= f.password_field :password %>
+      </br>
+      </br>
+      Password Confirmation:</br> 
+      <%= f.password_field :password_confirmation %>
+      </br>
+      </br>
+      Bio:</br> 
+      <%= f.text_area :bio, cols:40, rows:5 %>
+      </br>
+      </br>
+      <%= f.submit "Update" %>
 
     <% end %>
   </p>
