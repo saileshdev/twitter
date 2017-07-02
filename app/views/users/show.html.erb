@@ -3,7 +3,9 @@
 <% end %>
 
 <div id="tweets" class="panel left">
-    <h1>Twitter Profile</h1>
+    <h1>Twitter Profile
+        <%= link_to("(edit profile)", edit_user_path(@user)) if @user == current_user %>
+    </h1>
     <div class="tweetWrapper">
         <img class="avatar" src="<%= @user.avatar_url %>">
         <span class="name"><%= @user.name %></span> @<%= @user.username %>
@@ -11,6 +13,10 @@
         <%= @user.tweets.length %> Tweets
         <span class="spacing"><%= @user.followers.length %> Followers</span>
         <span class="spacing"><%= @user.followeds.length %> Following</span>
+
+        <% if @user.bio %>
+            <p><%= @user.bio %></p>  
+        <% end %>
 
         <% if current_user and @user != current_user %>
             <% if current_user.following? @user %>

@@ -44,6 +44,8 @@ def buddies
 
 def edit
 	@user = User.find(params[:id])
+
+	redirect_to @user unless @user == current_user
 end
 
 def update
