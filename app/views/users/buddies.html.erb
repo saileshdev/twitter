@@ -4,7 +4,7 @@
 <div class="panel left">
     <h1>Buddies' Tweets</h1>
     <% @tweets.each do |tweet| %>
-        <div class="t weetWrapper">
+        <div class="tweetWrapper">
             <a href="<%= user_path tweet.user %>">
             <img class="avatar" src="<%= tweet.user.avatar_url %>">
             <span class="name"><%= tweet.user.name %></span> 
